@@ -1,5 +1,5 @@
-def allergies(input_score)
-
+input = gets.chomp
+def allergies(input)
     allergy_list = {
     "cats" => 128,
     "pollen" => 64,
@@ -9,16 +9,14 @@ def allergies(input_score)
     "shellfish" => 4,
     "peanuts" => 2,
     "eggs" => 1
-  }
+    }
   result = []
-  remainder = input_score
+  remainder = input.to_i
   allergy_list.each do |k,v|
-     if remainder >= allergy_list[k]
+     if remainder >= v
         result << k
-        remainder = input_score - allergy_list[k]
+        remainder -= v
      end
-    end
+  end
   result
 end
-
-puts allergies(140)
